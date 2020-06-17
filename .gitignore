@@ -1,4 +1,4 @@
-CV.aux
-CV.log
-CV.out
-CV.synctex.gz
+*.aux
+*.log
+*.out
+*.synctex.gz
