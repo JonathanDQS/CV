@@ -1,0 +1,259 @@
+%-------------------------
+% Resume in Latex
+% Author : Jonathan Quespaz
+% Based on: Wilmer Gonzalez
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+
+% Page coloring, fonts, and logos
+\usepackage{pagecolor}
+\usepackage{lato}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{fontawesome}
+% ---
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+\urlstyle{same}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+% ---
+
+% Sections formatting
+\titleformat{\section}
+{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+% ---
+
+% Custom commands
+\newcommand{\resumeItem}[1]
+{%2
+  \item\small
+  {
+    %\textbf{#1}
+    #1
+    %{: #2 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]
+{
+  \vspace{7pt}\item%-1
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]
+{
+    \vspace{1pt}
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-4pt}}
+
+\renewcommand{\labelitemii}{$\circ$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*]}
+
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+\newcommand{\resumeTech}[2]
+{
+ \textbf{#1:} #2
+}
+
+% COLOR THEMES SELECTION
+
+% For Light theme un-comment this and comment the Dark theme section below
+%\colorlet{urlcolor}{blue}
+
+%\newcommand{\otherThemeRef}{\href{https://github.com/JonathanDQS}{See dark theme}}
+
+%\newcommand{\latestVersion}{\href{https://github.com/JonathanDQS}{Get Latest version}}
+
+% For Dark theme un-comment this and comment the Light theme section above
+\colorlet{textcolor}{white!80!gray}
+
+\colorlet{backgroundcolor}{black!70!gray}
+
+\colorlet{urlcolor}{blue!70!white}
+
+\AtBeginDocument{\color{textcolor}}
+
+\newcommand{\otherThemeRef}{\href{https://github.com/JonathanDQS}{See light theme}}
+
+\newcommand{\latestVersion}{\href{https://github.com/JonathanDQS}{Get Latest version}}
+
+%REFERENCES TO DOCS
+%TO DO
+\newcommand{\certificateOfHE}{\href{https://github.com/JonathanDQS}{Certificate of Higher Education}}
+
+%TO DO
+\newcommand{\academicT}{\href{https://github.com/JonathanDQS}{Academic Transcript}}
+
+%TO DO
+\newcommand{\Ctwo}{\href{https://github.com/JonathanDQS}{C2 Cambridge Certificate}}
+
+\newcommand{\PADI}{\href{https://apps.padi.com/scuba-diving/replacement-card/SearchRecord.aspx}{Open water diver -- 1806AT8758}}
+
+\newcommand{\ParcOS}{\href{https://github.com/JonathanDQS}{\textbf{ParcOS:} Implemented a simple OS for a Raspberry Pi.}}
+
+
+
+% ---
+
+% DOCUMENT MAIN
+\begin{document}
+
+% For Dark theme also un-comment this line:
+\pagecolor{backgroundcolor}
+
+% HEADING
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+  \textbf{\href{https://www.linkedin.com/in/jonathanquespaz/}
+  	{\Large Jonathan David Quespaz Sanchez}} &  \href{https://github.com/JonathanDQS}
+  	{\faicon{github} \color{urlcolor} JonathanDQS} \\
+  \href{mailto:jonathanquespaz2007@yahoo.es}{jonathanquespaz2007@yahoo.es} & \faicon{code} Java, Assembly ARM \\
+  \textsl{\small \latestVersion} & \textsl{\small \otherThemeRef}
+\end{tabular*}
+% ---
+
+% EXPERIENCE
+\section{Experience}
+	\resumeSubHeadingListStart
+		\resumeSubheading
+      		{Disanort (Family Business)}{Sangolqui, Ecuador}
+      		{English, Physics and Maths Tutor}{2017 -- Present}
+    	\resumeItemListStart
+	      	\resumeItem{Taught and helped students from middle and high school during summers, most of them did better in the following years}
+		    \resumeItem{Currently tutoring students when required}
+		\resumeItemListEnd
+	\resumeSubHeadingListEnd
+% ---
+
+% EDUCATION
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+		{Escuela Politecnica Nacional EPN}{Quito, Ecuador}
+		{MSc in Software}{May 2020 -- Present}
+    \resumeSubheading
+	    {The University of Manchester}{Manchester, UK}
+	    {BEng in Computer Systems Engineering}{2016 -- 2019}
+	    \resumeItemListStart
+	    	\resumeItem{First Class}
+		    \resumeItem{{\certificateOfHE} and {\academicT}}
+	    \resumeItemListEnd
+    \resumeSubheading
+		{INTO Manchester}{Manchester, UK}
+		{IFY - International Foundation Year}{2015 -- 2016}
+		\resumeItemListStart
+			\resumeItem{Results: Further Maths - A*, Maths - A*, Physics - A*, EAP - A}
+		\resumeItemListEnd
+	\resumeSubheading
+		{Unidad Educativa Santa Ana}{Sangolqui, Ecuador}
+		{High School Degree in Sciences}{2008 -- 2014}
+		\resumeItemListStart
+			\resumeItem{Result: 9,76/10}
+		\resumeItemListEnd	    
+  \resumeSubHeadingListEnd
+% ---
+
+% CERTIFICATIONS
+%\section{Certifications}
+%  \resumeSubHeadingListStart
+%    \resumeSubheading
+%      {Platform of the course}{Type - eg MOOC}
+%      {\href{https://www.coursera.org/account/accomplishments/certificate/NUMBER}{Course Title - ID: ID#}{Issued MONTH YEAR}
+ % \resumeSubHeadingListEnd
+% ---
+
+% PROJECTS
+\section{Projects}
+  \resumeSubHeadingListStart
+    \resumeSubItem{\textbf{HelpMeOut:} Web app aimed to students. Managed the backend with PHP and databases with MySQL and phpmyadmin.}
+    
+	\resumeSubItem{\textbf{Stendhal:} Developed, tested and deployed a feature in an open source MORPG.}
+	
+	\resumeSubItem{\ParcOS}   
+   
+  \resumeSubHeadingListEnd
+% ---
+
+% PERSONAL PUBLICATIONS
+%\section{Personal publications}
+
+%  \resumeSubHeadingListStart
+%    \resumeSubItem{\href{Link to publication}{Title and where to find it}}
+    
+%  \resumeSubHeadingListEnd
+% ---
+
+% PROGRAMMING SKILLS
+\section{Programming Languages Experience}
+	\resumeSubHeadingListStart
+		\resumeSubItem{\textbf{C:} Mainly used for the implementation of well-known algorithms and optimization techniques. Heuristics, dynamic programming, Dijkstra, are a few examples}
+		
+		\resumeSubItem{\textbf{Assembly ARM:} Developed a primitive OS and used it for the implementation of microcontroller's routines}
+		
+		\resumeSubItem{\textbf{Java:} Used for multi-threading performance analyisis, simple GUI development, Android applications, distributed systems simulations, Spring Framework web apps development}
+		
+		\resumeSubItem{\textbf{Matlab:} Implemented machine learning algorithms such as linear regression, knn, k-means and Naive Bayes}
+		
+		\resumeSubItem{\textbf{PHP:} Backend management of a web page, fairly simple and straight forward implementation}
+		
+		\resumeSubItem{\textbf{SQL:} Analysed case studies based on the Relational and Enhanced Relational models, implementing them in an Oracle server}
+		
+		\resumeSubItem{\textbf{Verilog:} HDL used to build a wide range of units ranging from traffic light controllers to more complex systems such as a video display unit}
+		
+		\resumeSubItem{\textbf{Python:} Analysed signals in the frequency domain, encoded and decoded multimedia files using different approaches, worked on error detection and correction aimed to mobile systems}
+		
+		\resumeSubItem{\textbf{JavaScript:} Experience acquired in order to use the Google Maps API and	Geo-location services in order to facilitate the use of the Spring Framework in web apps}
+		
+	\resumeSubHeadingListEnd
+% ---
+% PROJECTS
+\section{Additional Info}
+\resumeSubHeadingListStart
+\resumeSubItem{\textbf{Languages:} Spanish -- Native speaker, English -- \Ctwo}
+
+\resumeSubItem{\textbf{Qualifications:} Driver's license, \PADI}
+
+\resumeSubHeadingListEnd
+% ---
+
+\end{document}
