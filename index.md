@@ -2,10 +2,10 @@
 
 ## CV English Version
 
-[CV - (EV)](http://jonathandqs.github.io/CV/pdfs/CV.pdf){:target="_blank" rel="noopener"}
+[CV](http://jonathandqs.github.io/CV/CV.pdf){:target="_blank" rel="noopener"}
 
 # Perfil Profesional
 
 ## CV Versión en Español
 
-##
+[CV](http://jonathandqs.github.io/CV/CV_spanish.pdf){:target="_blank" rel="noopener"}
