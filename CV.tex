@@ -7,167 +7,176 @@
 
 \documentclass[letterpaper,11pt]{article}
 
-\usepackage{latexsym}
-\usepackage[empty]{fullpage}
-\usepackage{titlesec}
-\usepackage{marvosym}
-\usepackage[usenames,dvipsnames]{color}
-\usepackage{verbatim}
-\usepackage{enumitem}
-\usepackage[hidelinks]{hyperref}
-\usepackage{fancyhdr}
-\usepackage[english]{babel}
-\usepackage{tabularx}
+% Variables for theme and language
+\newif\ifEnglish
+% Comment for spanish
+\Englishtrue 
+\newif\ifDark
+% Comment for light theme
+\Darktrue
 
-% Page coloring, fonts, and logos
-\usepackage{pagecolor}
-\usepackage{lato}
-\renewcommand{\familydefault}{\sfdefault}
-\usepackage{fontawesome}
-% ---
+% Packages and new commands
+\include{PackagesAndNewComm}
 
-\pagestyle{fancy}
-\fancyhf{} % clear all header and footer fields
-\fancyfoot{}
-\renewcommand{\headrulewidth}{0pt}
-\renewcommand{\footrulewidth}{0pt}
+% Command for language
+\newcommand{\EngOrSp}[2]{\ifEnglish{#1}\else{#2}\fi}
 
-% Adjust margins
-\addtolength{\oddsidemargin}{-0.5in}
-\addtolength{\evensidemargin}{-0.5in}
-\addtolength{\textwidth}{1in}
-\addtolength{\topmargin}{-.5in}
-\addtolength{\textheight}{1.0in}
-\urlstyle{same}
-\raggedbottom
-\raggedright
-\setlength{\tabcolsep}{0in}
-% ---
+% Command for theme
+\newcommand{\themeDaOrLi}[2]{\ifDark{#1}\else{#2}\fi}
 
-% Sections formatting
-\titleformat{\section}
-{
-  \vspace{-4pt}\scshape\raggedright\large
-}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
-% ---
+% COLOR THEMES 
 
-% Custom commands
-\newcommand{\resumeItem}[1]
-{%2
-  \item\small
-  {
-    %\textbf{#1}
-    #1
-    %{: #2 \vspace{-2pt}}
-  }
-}
+\ifDark
+	\colorlet{textcolor}{white!80!gray}
 
-\newcommand{\resumeSubheading}[4]
-{
-  \vspace{3pt}\item%-1
-    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
-      \textbf{#1} & #2 \\
-      \textit{\small#3} & \textit{\small #4} \\
-    \end{tabular*}\vspace{-5pt}
-}
+	\colorlet{backgroundcolor}{black!70!gray}
 
-\newcommand{\resumeSubSubheading}[2]
-{
-    \vspace{1pt}
-    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
-      \textit{\small#1} & \textit{\small #2} \\
-    \end{tabular*}\vspace{-5pt}
-}
+	\colorlet{urlcolor}{blue!50!gray}
 
-\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-4pt}}
+	\AtBeginDocument{\color{textcolor}}
+\else
+	\colorlet{urlcolor}{blue}
+\fi
 
-\renewcommand{\labelitemii}{$\circ$}
+%------------------
+%REFERENCEs TO CV versions
 
-\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*]}
+\newcommand{\otherThemeRef}{\themeDaOrLi
+	{\EngOrSp
+		{\href{https://jonathandqs.github.io/CV/CV_light.pdf}{See light theme}}
+		{\href{https://jonathandqs.github.io/CV/CV_spanish_light.pdf}{Versión clara}}}
+	{\EngOrSp
+		{\href{https://jonathandqs.github.io/CV/CV.pdf}{See dark theme}}
+		{\href{https://jonathandqs.github.io/CV/CV_spanish.pdf}{Versión obscura}}}}
 
-\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\latestVersion}{\themeDaOrLi{\EngOrSp
+		{\href{https://jonathandqs.github.io/CV/CV.pdf}{Get Latest version}}
+		{\href{https://jonathandqs.github.io/CV/CV_spanish.pdf}{Versión más reciente}}}
+	{\EngOrSp
+		{\href{https://jonathandqs.github.io/CV/CV_light.pdf}{Get Latest version}}
+		{\href{https://jonathandqs.github.io/CV/CV_spanish_light.pdf}{Versión más reciente}}}}
 
-\newcommand{\resumeItemListStart}{\begin{itemize}}
 
-\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
-
-\newcommand{\resumeTech}[2]
-{
- \textbf{#1:} #2
-}
-
-% COLOR THEMES SELECTION
-
-% For Light theme un-comment this and comment the Dark theme section below
-%\colorlet{urlcolor}{blue}
-
-%\newcommand{\otherThemeRef}{\href{https://github.com/JonathanDQS/CV/blob/master/CV.pdf}{See dark theme}}
-
-%\newcommand{\latestVersion}{\href{https://github.com/JonathanDQS/CV/blob/master/CV_light.pdf}{Get Latest version}}
-
-%\newcommand{\SpanishVersion}{\href{https://github.com/JonathanDQS/CV/blob/master/CV_spanish_light.pdf}{See Spanish Version}}
-
-% FOR DARK theme un-comment this and comment the Light theme section above
-\colorlet{textcolor}{white!80!gray}
-
-\colorlet{backgroundcolor}{black!70!gray}
-
-\colorlet{urlcolor}{blue!70!white}
-
-\AtBeginDocument{\color{textcolor}}
-
-\newcommand{\otherThemeRef}{\href{https://github.com/JonathanDQS/CV/blob/master/CV_light.pdf}{See light theme}}
-
-\newcommand{\latestVersion}{\href{https://github.com/JonathanDQS/CV/blob/master/CV.pdf}{Get Latest version}}
-
-\newcommand{\SpanishVersion}{\href{https://github.com/JonathanDQS/CV/blob/master/CV_spanish.pdf}{See Spanish Version}}
+\newcommand{\LanguageVersion}{\themeDaOrLi{\EngOrSp
+		{\href{https://jonathandqs.github.io/CV/CV_spanish.pdf}{See Spanish Version}}
+		{\href{https://jonathandqs.github.io/CV/CV.pdf}{Versión en Inglés}}}
+	{\EngOrSp
+		{\href{https://jonathandqs.github.io/CV/CV_spanish_light.pdf}{See Spanish Version}}
+		{\href{https://jonathandqs.github.io/CV/CV_light.pdf}{Versión en Inglés}}}}
+		
 %-------------------
 %REFERENCES TO DOCS
 
-\newcommand{\certificateOfHE}{\href{https://github.com/JonathanDQS/CV/blob/master/Certificate\%20Higher\%20Education.pdf}{Certificate of Higher Education}}
+\newcommand{\certificateOfHE}{\href{https://jonathandqs.github.io/CV/Certificate\%20Higher\%20Education.pdf}{\EngOrSp
+	{Certificate of Higher Education}
+	{Certificado de Educación Superior}}}
 
-\newcommand{\academicT}{\href{https://github.com/JonathanDQS/CV/blob/master/Academic\%20Transcript.pdf}{Academic Transcript}}
+\newcommand{\academicT}{\href{https://jonathandqs.github.io/CV/Academic\%20Transcript.pdf}{\EngOrSp
+	{Academic Transcript}
+	{Notas}}}
 
-\newcommand{\Ctwo}{\href{https://github.com/JonathanDQS/CV/blob/master/Cambridge\%20C2.pdf}{C2 Cambridge Certificate}}
+\newcommand{\Ctwo}{\href{https://jonathandqs.github.io/CV/Cambridge\%20C2.pdf}
+{\EngOrSp
+	{C2 Cambridge Certificate}
+	{Certificado Cambridge C2}}}
 
-\newcommand{\PADI}{\href{https://apps.padi.com/scuba-diving/replacement-card/SearchRecord.aspx}{Open water diver -- 1806AT8758}}
+\newcommand{\PADI}{\href{https://apps.padi.com/scuba-diving/replacement-card/SearchRecord.aspx}{\EngOrSp
+	{Open water diver}
+	{Buzo de aguas abiertas} -- 1806AT8758}}
 
-\newcommand{\ParcOS}{\href{https://github.com/JonathanDQS/CV/blob/master/My\%20Little\%20Operating\%20System\%20(ParcOS).pdf}{\textbf{ParcOS:} Implemented a simple OS for a Raspberry Pi.}}
+\newcommand{\ParcOS}{\href{https://jonathandqs.github.io/CV/My\%20Little\%20Operating\%20System\%20(ParcOS).pdf}{\textbf{ParcOS: }\EngOrSp
+	{Implemented a simple OS for a}
+	{Implementación de un sistema operativo simple para una} Raspberry Pi}}
+
+\newcommand{\MOOC}{\href{https://coursera.org/verify/P7JVG8XMHUX9}{Reviews and Metrics for Software Improvements - ID: P7JVG8XMHUX9}}
 
 % ---
 
 % DOCUMENT MAIN
 \begin{document}
 
-% FOR DARK theme also un-comment this line:
-\pagecolor{backgroundcolor}
+\ifDark
+	\pagecolor{backgroundcolor}
+\fi
 
 % HEADING
 \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
   \textbf{\href{https://www.linkedin.com/in/jonathanquespaz/}
   	{\Large Jonathan David Quespaz Sanchez}} &  \href{https://github.com/JonathanDQS}
   	{\faicon{github} \color{urlcolor} JonathanDQS} \\
-  \href{mailto:jonathanquespaz2007@yahoo.es}{jonathanquespaz2007@yahoo.es} & \faicon{code} Java, Assembly ARM \\
-  \textsl{\small \latestVersion} & \textsl{\small \otherThemeRef,} 
-	\textsl{\small \SpanishVersion}
+  \href{mailto:jonathanquespaz2007@yahoo.es}{jonathanquespaz2007@yahoo.es} & \faicon{code} Angular, .NET \\
+  \textsl{\small \latestVersion} & \textsl{\small \otherThemeRef,}
+	\textsl{\small \LanguageVersion}
 \end{tabular*}
 % ---
 
+% Section modified for English and Spanish support line by line, the following 
+% sections have 2 versions 1 for English and 1 for Spanish
 % EXPERIENCE
-\section{Experience}
+\section{\EngOrSp{Experience}{Experiencia}}
 	\resumeSubHeadingListStart
 		\resumeSubheading
-      		{Disanort (Family Business)}{Sangolqui, Ecuador}
-      		{English, Physics and Maths Tutor}{2017 -- Present}
+      		{WebCreek}{Quito, Ecuador}
+      		{Software Engineer I}{Feb 2021 -- \EngOrSp{Present}{Presente}}
     	\resumeItemListStart
-	      	\resumeItem{Taught and helped students from middle and high school during summers, most of them did better in the following years}
-		    \resumeItem{Currently tutoring students when required}
+	      	\resumeItem{\EngOrSp
+	      	{Designed and developed modules in an existing application
+	      	involving accounting logic. .NET was used for the backend and Angular
+	        for the frontend}
+	        {Diseño y desarrollo de módulos en una aplicación 
+	      	existente involucrando lógica contable. .NET fue usado para el 
+	      	backend y Angular para frontend}}
+	      	\resumeItem{\EngOrSp
+	      	{Worked on the modification of a web application to
+	      	support responsiveness which involved SASS and learning about third
+	      	party libraries. Refactored most of the styles and coordinated
+	      	efforts to implement new modules maintaining consistency to provide a
+	      	good user experience}
+	      	{Trabajé en la modificación de una aplicación web 
+	      	para que sea adaptable a múltiples dispositivos utilizando SASS y 
+	      	aprendiendo sobre librerias de terceros. Se refactoró la mayoría 
+	      	de los estilos y se coordinó la implementación de nuevos 
+	      	módulos para que mantengan consistencia en toda la aplicación 
+	      	para proveer una buena experiencia de usuario}}
+		\resumeItemListEnd
+		\resumeSubheading
+      		{WebCreek}{Quito, Ecuador}
+      		{Software Engineer - Internship}{\EngOrSp{Aug}{Ago} 2020 -- Feb 2021}
+    	\resumeItemListStart
+	      	\resumeItem{\EngOrSp
+	      	{Worked in a multicultural team mainly developing
+	      	reports with the DevExpress Reporting tool, gaining some experience
+	      	in the .NET framework and Angular, handling the requests and
+	      	providing a nicely looking interface}
+	      	{Desempeñando mis actividades en un equipo multicultural 
+	      	desarrollando reportes con la herramienta DevExpress. Obteniendo 
+	      	experiencia en .NET y Angular al manejar peticiones e implementando 
+	      	una interface de usuario usable}}
+		\resumeItemListEnd
+		\resumeSubheading
+      		{Disanort (\EngOrSp
+      		{Family Business}{Negocio Familiar})}{Sangolqu\EngOrSp
+      		{i}{í}, Ecuador}
+      		{\EngOrSp
+      		{English, Physics and Maths Tutor}
+      		{Tutor de Inglés, Física y Matemática}}
+      		{2017 -- \EngOrSp{Present}{Presente}}
+    	\resumeItemListStart
+	      	\resumeItem{\EngOrSp
+	      	{Taught and helped students from middle and high school
+	      	during summers}
+	      	{Enseñanza impartida a estudiates de eduación básica 
+	      	superior y bachillerato en el periodo de vacaciones universitarias}}
+		    \resumeItem{\EngOrSp
+		    {Currently tutoring students when required}
+		    {Actualmente desempeñandome como tutor personal según se
+		    requiera}}
 		\resumeItemListEnd
 	\resumeSubHeadingListEnd
 % ---
 
 % EDUCATION
-\section{Education}
+\EngOrSp{\section{Education}
   \resumeSubHeadingListStart
     \resumeSubheading
 		{Escuela Politecnica Nacional EPN}{Quito, Ecuador}
@@ -183,36 +192,78 @@
 		{INTO Manchester}{Manchester, UK}
 		{IFY - International Foundation Year}{2015 -- 2016}
 		\resumeItemListStart
-			\resumeItem{Results: Further Maths - A*, Maths - A*, Physics - A*, EAP - A}
+			\resumeItem{Results: Further Maths - A*, Maths - A*, Physics - A*,
+			EAP - A}
 		\resumeItemListEnd
 	\resumeSubheading
 		{Unidad Educativa Santa Ana}{Sangolqui, Ecuador}
 		{High School Degree in Sciences}{2008 -- 2014}
 		\resumeItemListStart
 			\resumeItem{Result: 9,76/10}
+		\resumeItemListEnd
+  \resumeSubHeadingListEnd}
+  {\section{Educación}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+		{Escuela Politécnica Nacional EPN}{Quito, Ecuador}
+		{Maestría en Software}{Mayo 2020 -- Presente}
+    \resumeSubheading
+	    {The University of Manchester}{Manchester, UK}
+	    {Ingeniería en Sistemas Computacionales}{2016 -- 2019}
+	    \resumeItemListStart
+	    	\resumeItem{Primera clase}
+		    \resumeItem{{\certificateOfHE} y {\academicT}}
+	    \resumeItemListEnd
+	\resumeSubheading
+		{INTO Manchester}{Manchester, UK}
+		{Año de preparación propedéutico internacional}{2015 -- 2016}
+		\resumeItemListStart
+			\resumeItem{Resultados: Matemática Avanzada - A*, Matemática - A*, 
+			Física - A*, Inglés para propósitos académicos - A}
+		\resumeItemListEnd
+	\resumeSubheading
+		{Unidad Educativa Santa Ana}{Sangolquí, Ecuador}
+		{Bachillerato en Ciencias -- BGU}{2008 -- 2014}
+		\resumeItemListStart
+			\resumeItem{Resultado: 9,76/10}
 		\resumeItemListEnd	    
-  \resumeSubHeadingListEnd
+  \resumeSubHeadingListEnd}
 % ---
 
 % CERTIFICATIONS
-%\section{Certifications}
-%  \resumeSubHeadingListStart
-%    \resumeSubheading
-%      {Platform of the course}{Type - eg MOOC}
-%      {\href{https://www.coursera.org/account/accomplishments/certificate/NUMBER}{Course Title - ID: ID#}{Issued MONTH YEAR}
- % \resumeSubHeadingListEnd
+\EngOrSp{\section{Certifications}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Coursera}{MOOC}
+      \MOOC{Issued Jul -- 2020}
+  \resumeSubHeadingListEnd}
+  {\section{Certificaciones}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Coursera}{MOOC}
+      \MOOC{Otorgado Jul -- 2020}
+  \resumeSubHeadingListEnd}
 % ---
 
 % PROJECTS
-\section{Projects}
+\EngOrSp{\section{Projects}
   \resumeSubHeadingListStart
     \resumeSubItem{\textbf{HelpMeOut:} Web app aimed to students. Managed the backend with PHP and databases with MySQL and phpmyadmin.}
-    
+
 	\resumeSubItem{\textbf{Stendhal:} Developed, tested and deployed a feature in an open source MORPG.}
+
+	\resumeSubItem{\ParcOS}
+
+  \resumeSubHeadingListEnd}
+  {\section{Proyectos}
+  \resumeSubHeadingListStart
+    \resumeSubItem{\textbf{HelpMeOut:} Aplicación Web enfocada a estudiantes. Encargado del backend con PHP y base de datos con MySQL.}
+    
+	\resumeSubItem{\textbf{Stendhal:} Desarrollo, prueba y lanzamiento de un componente en un juego MORPG.}
 	
 	\resumeSubItem{\ParcOS}   
    
-  \resumeSubHeadingListEnd
+  \resumeSubHeadingListEnd}
 % ---
 
 % PERSONAL PUBLICATIONS
@@ -220,41 +271,92 @@
 
 %  \resumeSubHeadingListStart
 %    \resumeSubItem{\href{Link to publication}{Title and where to find it}}
-    
+
 %  \resumeSubHeadingListEnd
 % ---
 
 % PROGRAMMING SKILLS
-\section{Programming Languages Experience}
+\EngOrSp{\section{Programming Languages Experience}
 	\resumeSubHeadingListStart
 		\resumeSubItem{\textbf{C:} Mainly used for the implementation of well-known algorithms and optimization techniques. Heuristics, dynamic programming, Dijkstra, are a few examples}
-		
+
 		\resumeSubItem{\textbf{Assembly ARM:} Developed a primitive OS and used it for the implementation of microcontroller's routines}
-		
-		\resumeSubItem{\textbf{Java:} Used for multi-threading performance analyisis, simple GUI development, Android applications, distributed systems simulations, Spring Framework web apps development}
-		
+
+		\resumeSubItem{\textbf{Java:} Used for multi-threading performance analysis, simple GUI development, Android applications, distributed systems simulations, Spring Framework web apps development}
+
 		\resumeSubItem{\textbf{Matlab:} Implemented machine learning algorithms such as linear regression, knn, k-means and Naive Bayes}
-		
+
 		\resumeSubItem{\textbf{PHP:} Backend management of a web page, fairly simple and straight forward implementation}
-		
+
 		\resumeSubItem{\textbf{SQL:} Analysed case studies based on the Relational and Enhanced Relational models, implementing them in an Oracle server}
-		
+
 		\resumeSubItem{\textbf{Verilog:} HDL used to build a wide range of units ranging from traffic light controllers to more complex systems such as a video display unit}
-		
+
 		\resumeSubItem{\textbf{Python:} Analysed signals in the frequency domain, encoded and decoded multimedia files using different approaches, worked on error detection and correction aimed to mobile systems}
-		
+
 		\resumeSubItem{\textbf{JavaScript:} Experience acquired in order to use the Google Maps API and	Geo-location services in order to facilitate the use of the Spring Framework in web apps}
+
+		\resumeSubItem{\textbf{C$\sharp$:} Backend handling of requests in a web application. Mostly worked on DB updates, filter data optimally before processing to pass it to the frontend, and report generation using DevExpress}
+
+	\resumeSubHeadingListEnd}
+	{\section{Experiencia en Lenguajes de programaci\'on}
+	\resumeSubHeadingListStart
+		\resumeSubItem{\textbf{C:} Principalmente usado para la implementación de 
+		algoritmos conocidos y técnicas de optimización. Métodos heurísticos, 
+		programación dinámica y Dijkstra son algunos ejemplos.}
 		
-	\resumeSubHeadingListEnd
+		\resumeSubItem{\textbf{Assembly ARM:} Desarrollo de un sistema operativo 
+		primitivo además de rutinas para microcontroladores}
+		
+		\resumeSubItem{\textbf{Java:} Usado para analizar el rendimiento de 
+		programas multithread, desarrollo de interfaces gráficas simples, 
+		aplicaciones Android, simulaciones de sistemas distribuidos y desarrollo 
+		de aplicaciones web usando Spring Framework}
+		
+		\resumeSubItem{\textbf{Matlab:} Programación de algoritmos de aprendizaje 
+		automático como regresión lineal, knn, k-means y Naive Bayes}
+		
+		\resumeSubItem{\textbf{PHP:} Manejo de backend de una página web}
+		
+		\resumeSubItem{\textbf{SQL:} Análisis de casos de estudio basados en el 
+		modelo relacional y modelo relacional mejorado, implementándolos en un 
+		servidor Oracle}
+		
+		\resumeSubItem{\textbf{Verilog:} Construcción de una variedad de unidades 
+		desde un controlador de luces de semáforo hasta una pantalla de 
+		visualización de video.}
+		
+		\resumeSubItem{\textbf{Python:} Análisis de señales en el dominio de 
+		frecuencias, codificación y decodificación de archivos multimedia usando 
+		enfoques variados, también aprendizaje de detección y corrección de 
+		errores en el contexto de sistemas móviles}
+		
+		\resumeSubItem{\textbf{JavaScript:} Experiencia adquirida para usar la 
+		API de Google Maps y sus servicios de Geolocalización para facilitar su 
+		uso con Spring Framework}
+		
+		\resumeSubItem{\textbf{C$\sharp$:} Manejo de peticiones al backend en una 
+		aplicación web. Lo más usual era actualización de records en bases de 
+		datos, filtrado óptimo previo al procesamiento y paso al frontend y la 
+		generación de reportes usando DevExpress}
+		
+	\resumeSubHeadingListEnd}
 % ---
 % PROJECTS
-\section{Additional Info}
+\EngOrSp{\section{Additional Info}
 \resumeSubHeadingListStart
 \resumeSubItem{\textbf{Languages:} Spanish -- Native speaker, English -- \Ctwo}
 
 \resumeSubItem{\textbf{Qualifications:} Driver's license, \PADI}
 
-\resumeSubHeadingListEnd
+\resumeSubHeadingListEnd}
+{\section{Información Adicional}
+\resumeSubHeadingListStart
+\resumeSubItem{\textbf{Lenguajes:} Español -- Hablante nativo, Ingl\'es -- \Ctwo}
+
+\resumeSubItem{\textbf{Cualificaciones:} Licencia de conducir Tipo B, \PADI}
+
+\resumeSubHeadingListEnd}
 % ---
 
 \end{document}
