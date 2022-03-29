@@ -1,5 +1,4 @@
 title: JonathanDQS Professional Profile
 logo: ./assets/pics/profPic.jpg
 theme: jekyll-theme-minimal
-minima:
-  skin: dark
+minimal_mistakes_skin: dark
