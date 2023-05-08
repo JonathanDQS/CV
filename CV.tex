@@ -10,7 +10,7 @@
 % Variables for theme and language
 \newif\ifEnglish
 % Comment for spanish
-\Englishtrue 
+\Englishtrue
 \newif\ifDark
 % Comment for light theme
 \Darktrue
@@ -29,7 +29,7 @@
 \let\orighref\href
 \renewcommand{\href}[2]{\orighref{#1}{#2\,\faExternalLink}}
 
-% COLOR THEMES 
+% COLOR THEMES
 
 \ifDark
 	\colorlet{textcolor}{white!80!gray}
@@ -68,7 +68,7 @@
 	{\EngOrSp
 		{\href{https://jonathandqs.github.io/CV/CV_spanish_light.pdf}{See Spanish Version}}
 		{\href{https://jonathandqs.github.io/CV/CV_light.pdf}{Versión en Inglés}}}}
-		
+
 %-------------------
 %REFERENCES TO DOCS
 
@@ -97,6 +97,12 @@
 
 \newcommand{\MOOC}{\href{https://coursera.org/verify/P7JVG8XMHUX9}{Reviews and Metrics for Software Improvements - ID: P7JVG8XMHUX9}}
 
+\newcommand{\IntroBash}{\href{https://coursera.org/verify/N78MDGBG9GPB}{Intoduction to Bash Shell Scripting - ID: N78MDGBG9GPB}}
+
+\newcommand{\TSVars}{\href{https://coursera.org/verify/Z9SP7XFK4CEU}{TypeScript Variables and Data Types - ID: Z9SP7XFK4CEU}}
+
+\newcommand{\TSOper}{\href{https://coursera.org/verify/PGEY2DE6YDLF}{TypeScript Operators - ID: PGEY2DE6YDLF}}
+
 % ---
 
 % DOCUMENT MAIN
@@ -117,7 +123,7 @@
 \end{tabular*}
 % ---
 
-% Section modified for English and Spanish support line by line, the following 
+% Section modified for English and Spanish support line by line, the following
 % sections have 2 versions 1 for English and 1 for Spanish
 % EXPERIENCE
 \section{\EngOrSp{Experience}{Experiencia}}
@@ -130,8 +136,8 @@
 	      	{Designed and developed modules in an existing application
 	      	involving accounting logic. .NET was used for the backend and Angular
 	        for the frontend}
-	        {Diseño y desarrollo de módulos en una aplicación 
-	      	existente involucrando lógica contable. .NET fue usado para el 
+	        {Diseño y desarrollo de módulos en una aplicación
+	      	existente involucrando lógica contable. .NET fue usado para el
 	      	backend y Angular para frontend}}
 	      	\resumeItem{\EngOrSp
 	      	{Worked on the modification of a web application to
@@ -139,11 +145,11 @@
 	      	party libraries. Refactored most of the styles and coordinated
 	      	efforts to implement new modules maintaining consistency to provide a
 	      	good user experience}
-	      	{Trabajé en la modificación de una aplicación web 
-	      	para que sea adaptable a múltiples dispositivos utilizando SASS y 
-	      	aprendiendo sobre librerias de terceros. Se refactoró la mayoría 
-	      	de los estilos y se coordinó la implementación de nuevos 
-	      	módulos para que mantengan consistencia en toda la aplicación 
+	      	{Trabajé en la modificación de una aplicación web
+	      	para que sea adaptable a múltiples dispositivos utilizando SASS y
+	      	aprendiendo sobre librerias de terceros. Se refactoró la mayoría
+	      	de los estilos y se coordinó la implementación de nuevos
+	      	módulos para que mantengan consistencia en toda la aplicación
 	      	para proveer una buena experiencia de usuario}}
 		\resumeItemListEnd
 		\resumeSubheading
@@ -155,9 +161,9 @@
 	      	reports with the DevExpress Reporting tool, gaining some experience
 	      	in the .NET framework and Angular, handling the requests and
 	      	providing a nicely looking interface}
-	      	{Desempeñando mis actividades en un equipo multicultural 
-	      	desarrollando reportes con la herramienta DevExpress. Obteniendo 
-	      	experiencia en .NET y Angular al manejar peticiones e implementando 
+	      	{Desempeñando mis actividades en un equipo multicultural
+	      	desarrollando reportes con la herramienta DevExpress. Obteniendo
+	      	experiencia en .NET y Angular al manejar peticiones e implementando
 	      	una interface de usuario usable}}
 		\resumeItemListEnd
 		\resumeSubheading
@@ -172,7 +178,7 @@
 	      	\resumeItem{\EngOrSp
 	      	{Taught and helped students from middle and high school
 	      	during summers}
-	      	{Enseñanza impartida a estudiates de eduación básica 
+	      	{Enseñanza impartida a estudiates de eduación básica
 	      	superior y bachillerato en el periodo de vacaciones universitarias}}
 		    \resumeItem{\EngOrSp
 		    {Currently tutoring students when required}
@@ -225,7 +231,7 @@
 		{INTO Manchester}{Manchester, UK}
 		{Año de preparación propedéutico internacional}{2015 -- 2016}
 		\resumeItemListStart
-			\resumeItem{Resultados: Matemática Avanzada - A*, Matemática - A*, 
+			\resumeItem{Resultados: Matemática Avanzada - A*, Matemática - A*,
 			Física - A*, Inglés para propósitos académicos - A}
 		\resumeItemListEnd
 	\resumeSubheading
@@ -233,13 +239,22 @@
 		{Bachillerato en Ciencias -- BGU}{2008 -- 2014}
 		\resumeItemListStart
 			\resumeItem{Resultado: 9,76/10}
-		\resumeItemListEnd	    
+		\resumeItemListEnd
   \resumeSubHeadingListEnd}
 % ---
 
 % CERTIFICATIONS
 \EngOrSp{\section{Certifications}
   \resumeSubHeadingListStart
+		\resumeSubheading
+			{Coursera}{MOOC}
+			\TSOper{Issued May -- 2023}
+		\resumeSubheading
+			{Coursera}{MOOC}
+			\TSVars{Issued May -- 2023}
+		\resumeSubheading
+			{Coursera}{MOOC}
+			\IntroBash{Issued May -- 2023}
     \resumeSubheading
       {Coursera}{MOOC}
       \MOOC{Issued Jul -- 2020}
@@ -249,6 +264,15 @@
   \resumeSubHeadingListEnd}
   {\section{Certificaciones}
   \resumeSubHeadingListStart
+		\resumeSubheading
+			{Coursera}{MOOC}
+			\TSOper{Otorgado May -- 2023}
+		\resumeSubheading
+			{Coursera}{MOOC}
+			\TSVars{Otorgado May -- 2023}
+		\resumeSubheading
+			{Coursera}{MOOC}
+			\IntroBash{Otorgado May -- 2023}
     \resumeSubheading
       {Coursera}{MOOC}
       \MOOC{Otorgado Jul -- 2020}
@@ -256,7 +280,7 @@
       {Udemy}{MOOC}
       \UdemyMOOC{Otorgado Jun -- 2021}
   \resumeSubHeadingListEnd}
-  
+
 % ---
 
 % PROJECTS
@@ -272,11 +296,11 @@
   {\section{Proyectos}
   \resumeSubHeadingListStart
     \resumeSubItem{\textbf{HelpMeOut:} Aplicación Web enfocada a estudiantes. Encargado del backend con PHP y base de datos con MySQL.}
-    
+
 	\resumeSubItem{\textbf{Stendhal:} Desarrollo, prueba y lanzamiento de un componente en un juego MORPG.}
-	
-	\resumeSubItem{\ParcOS}   
-   
+
+	\resumeSubItem{\ParcOS}
+
   \resumeSubHeadingListEnd}
 % ---
 
@@ -315,45 +339,45 @@
 	\resumeSubHeadingListEnd}
 	{\section{Experiencia en Lenguajes de programaci\'on}
 	\resumeSubHeadingListStart
-		\resumeSubItem{\textbf{C:} Principalmente usado para la implementación de 
-		algoritmos conocidos y técnicas de optimización. Métodos heurísticos, 
+		\resumeSubItem{\textbf{C:} Principalmente usado para la implementación de
+		algoritmos conocidos y técnicas de optimización. Métodos heurísticos,
 		programación dinámica y Dijkstra son algunos ejemplos.}
-		
-		\resumeSubItem{\textbf{Assembly ARM:} Desarrollo de un sistema operativo 
+
+		\resumeSubItem{\textbf{Assembly ARM:} Desarrollo de un sistema operativo
 		primitivo además de rutinas para microcontroladores}
-		
-		\resumeSubItem{\textbf{Java:} Usado para analizar el rendimiento de 
-		programas multithread, desarrollo de interfaces gráficas simples, 
-		aplicaciones Android, simulaciones de sistemas distribuidos y desarrollo 
+
+		\resumeSubItem{\textbf{Java:} Usado para analizar el rendimiento de
+		programas multithread, desarrollo de interfaces gráficas simples,
+		aplicaciones Android, simulaciones de sistemas distribuidos y desarrollo
 		de aplicaciones web usando Spring Framework}
-		
-		\resumeSubItem{\textbf{Matlab:} Programación de algoritmos de aprendizaje 
+
+		\resumeSubItem{\textbf{Matlab:} Programación de algoritmos de aprendizaje
 		automático como regresión lineal, knn, k-means y Naive Bayes}
-		
+
 		\resumeSubItem{\textbf{PHP:} Manejo de backend de una página web}
-		
-		\resumeSubItem{\textbf{SQL:} Análisis de casos de estudio basados en el 
-		modelo relacional y modelo relacional mejorado, implementándolos en un 
+
+		\resumeSubItem{\textbf{SQL:} Análisis de casos de estudio basados en el
+		modelo relacional y modelo relacional mejorado, implementándolos en un
 		servidor Oracle}
-		
-		\resumeSubItem{\textbf{Verilog:} Construcción de una variedad de unidades 
-		desde un controlador de luces de semáforo hasta una pantalla de 
+
+		\resumeSubItem{\textbf{Verilog:} Construcción de una variedad de unidades
+		desde un controlador de luces de semáforo hasta una pantalla de
 		visualización de video.}
-		
-		\resumeSubItem{\textbf{Python:} Análisis de señales en el dominio de 
-		frecuencias, codificación y decodificación de archivos multimedia usando 
-		enfoques variados, también aprendizaje de detección y corrección de 
+
+		\resumeSubItem{\textbf{Python:} Análisis de señales en el dominio de
+		frecuencias, codificación y decodificación de archivos multimedia usando
+		enfoques variados, también aprendizaje de detección y corrección de
 		errores en el contexto de sistemas móviles}
-		
-		\resumeSubItem{\textbf{JavaScript:} Experiencia adquirida para usar la 
-		API de Google Maps y sus servicios de Geolocalización para facilitar su 
+
+		\resumeSubItem{\textbf{JavaScript:} Experiencia adquirida para usar la
+		API de Google Maps y sus servicios de Geolocalización para facilitar su
 		uso con Spring Framework}
-		
-		\resumeSubItem{\textbf{C$\sharp$:} Manejo de peticiones al backend en una 
-		aplicación web. Lo más usual era actualización de records en bases de 
-		datos, filtrado óptimo previo al procesamiento y paso al frontend y la 
+
+		\resumeSubItem{\textbf{C$\sharp$:} Manejo de peticiones al backend en una
+		aplicación web. Lo más usual era actualización de records en bases de
+		datos, filtrado óptimo previo al procesamiento y paso al frontend y la
 		generación de reportes usando DevExpress}
-		
+
 	\resumeSubHeadingListEnd}
 % ---
 % PROJECTS
