@@ -1,0 +1,11 @@
+InfoKey: Title
+InfoValue: Resume Jonathan David Quespaz Sánchez
+
+InfoKey: Author
+InfoValue: Jonathan David Quespaz Sánchez
+
+InfoKey: Subject
+InfoValue: Resume, CV
+
+InfoKey: Keywords
+InfoValue: Resume, Jonathan David Quespaz Sánchez, Curriculum, CV, Software Developer, Developer, Programmer, Engineer, Technology, Technology Resume, Technology CV, Technology Curriculum, Technology Engineer, Technology Programmer, Technology Developer, Technology Software, Technology Software Developer, Technology Software Engineer, Technology Software Programmer

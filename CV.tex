@@ -7,341 +7,245 @@
 
 \documentclass[letterpaper,11pt]{article}
 
-% Variables for theme and language
-\newif\ifEnglish
-% Comment for spanish
-\Englishtrue
-\newif\ifDark
-% Comment for light theme
-\Darktrue
+% Import core configurations
+\input{config/packages}     % Package imports and basic setup
+\input{config/commands}     % Resume-specific commands
+\input{config/language}     % Language settings
+\input{config/theme}        % Theme settings
+\input{config/colors}       % Color themes
+\input{config/links}        % Link styling and commands
+\input{config/references}   % Document references
 
-% Packages and new commands
-\include{PackagesAndNewComm}
-
-% Command for language
-\newcommand{\EngOrSp}[2]{\ifEnglish{#1}\else{#2}\fi}
-
-% Command for theme
-\newcommand{\themeDaOrLi}[2]{\ifDark{#1}\else{#2}\fi}
-
-% Command for links
-% Redefinition, symbol included in link:
-\let\orighref\href
-\renewcommand{\href}[2]{\orighref{#1}{#2\,\faExternalLink}}
-
-% COLOR THEMES
-
-\ifDark
-	\colorlet{textcolor}{white!80!gray}
-
-	\colorlet{backgroundcolor}{black!70!gray}
-
-	\colorlet{urlcolor}{blue!50!gray}
-
-	\AtBeginDocument{\color{textcolor}}
-\else
-	\colorlet{urlcolor}{blue}
-\fi
-
-%------------------
-%REFERENCEs TO CV versions
-
-\newcommand{\otherThemeRef}{\themeDaOrLi
-	{\EngOrSp
-		{\href{https://jonathandqs.github.io/CV/CV_light.pdf}{See light theme}}
-		{\href{https://jonathandqs.github.io/CV/CV_spanish_light.pdf}{Versión clara}}}
-	{\EngOrSp
-		{\href{https://jonathandqs.github.io/CV/CV.pdf}{See dark theme}}
-		{\href{https://jonathandqs.github.io/CV/CV_spanish.pdf}{Versión obscura}}}}
-
-\newcommand{\latestVersion}{\themeDaOrLi{\EngOrSp
-		{\href{https://jonathandqs.github.io/CV/CV.pdf}{Get Latest version}}
-		{\href{https://jonathandqs.github.io/CV/CV_spanish.pdf}{Versión más reciente}}}
-	{\EngOrSp
-		{\href{https://jonathandqs.github.io/CV/CV_light.pdf}{Get Latest version}}
-		{\href{https://jonathandqs.github.io/CV/CV_spanish_light.pdf}{Versión más reciente}}}}
-
-
-\newcommand{\LanguageVersion}{\themeDaOrLi{\EngOrSp
-		{\href{https://jonathandqs.github.io/CV/CV_spanish.pdf}{See Spanish Version}}
-		{\href{https://jonathandqs.github.io/CV/CV.pdf}{Versión en Inglés}}}
-	{\EngOrSp
-		{\href{https://jonathandqs.github.io/CV/CV_spanish_light.pdf}{See Spanish Version}}
-		{\href{https://jonathandqs.github.io/CV/CV_light.pdf}{Versión en Inglés}}}}
-
-%-------------------
-%REFERENCES TO DOCS
-
-\newcommand{\certificateOfHE}{\href{https://jonathandqs.github.io/CV/Certificate\%20Higher\%20Education.pdf}{\EngOrSp
-	{Certificate of Higher Education}
-	{Certificado de Educación Superior}}}
-
-\newcommand{\academicT}{\href{https://jonathandqs.github.io/CV/Academic\%20Transcript.pdf}{\EngOrSp
-	{Academic Transcript}
-	{Notas}}}
-
-\newcommand{\Ctwo}{\href{https://jonathandqs.github.io/CV/Cambridge\%20C2.pdf}
-{\EngOrSp
-	{C2 Cambridge Certificate}
-	{Certificado Cambridge C2}}}
-
-\newcommand{\PADI}{\href{https://apps.padi.com/scuba-diving/replacement-card/SearchRecord.aspx}{\EngOrSp
-	{Open water diver}
-	{Buzo de aguas abiertas} -- 1806AT8758}}
-
-\newcommand{\ParcOS}{\href{https://jonathandqs.github.io/CV/My\%20Little\%20Operating\%20System\%20(ParcOS).pdf}{\textbf{ParcOS: }\EngOrSp
-	{Implemented a simple OS for a}
-	{Implementación de un sistema operativo simple para una} Raspberry Pi}}
-
-\newcommand{\UdemyMOOC}{\href{https://www.udemy.com/certificate/UC-df8b29bb-c766-4d11-812a-cf7f1944a96a}{Java Design Patterns \& SOLID Design Principles}}
-
-\newcommand{\MOOC}{\href{https://coursera.org/verify/P7JVG8XMHUX9}{Reviews and Metrics for Software Improvements - ID: P7JVG8XMHUX9}}
-
-\newcommand{\IntroBash}{\href{https://coursera.org/verify/N78MDGBG9GPB}{Intoduction to Bash Shell Scripting - ID: N78MDGBG9GPB}}
-
-\newcommand{\TSVars}{\href{https://coursera.org/verify/Z9SP7XFK4CEU}{TypeScript Variables and Data Types - ID: Z9SP7XFK4CEU}}
-
-\newcommand{\TSOper}{\href{https://coursera.org/verify/PGEY2DE6YDLF}{TypeScript Operators - ID: PGEY2DE6YDLF}}
-
-% ---
+% Set language and theme
+\Englishtrue  % Comment for Spanish
+\Darktrue     % Comment for light theme
 
 % DOCUMENT MAIN
 \begin{document}
 
-\ifDark
-	\pagecolor{backgroundcolor}
-\fi
-
 % HEADING
 \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
-  \textbf{\href{https://www.linkedin.com/in/jonathanquespaz/}
-  	{\Large Jonathan David Quespaz Sanchez}} &  \href{https://github.com/JonathanDQS}
-  	{\faicon{github} \color{urlcolor} JonathanDQS} \\
-  \href{mailto:jonathanquespaz2007@gmail.com}{jonathanquespaz2007@gmail.com} & \faicon{code} Angular, .NET \\
-  \textsl{\small \latestVersion} & \textsl{\small \otherThemeRef,}
-	\textsl{\small \LanguageVersion}
+    \textbf{\href{https://www.linkedin.com/in/jonathanquespaz/}
+        {\Large Jonathan David Quespaz Sanchez}} & \href{https://github.com/JonathanDQS}
+        {\faicon{github} \color{urlcolor} JonathanDQS} \\
+    \href{mailto:jonathanquespaz2007@gmail.com}{jonathanquespaz2007@gmail.com} & \faicon{code} Angular, .NET \\
+    \textsl{\small \latestVersion} & \textsl{\small \otherThemeRef,}
+    \textsl{\small \languageVersion}
 \end{tabular*}
-% ---
 
 % Section modified for English and Spanish support line by line, the following
 % sections have 2 versions 1 for English and 1 for Spanish
 % EXPERIENCE
 \section{\EngOrSp{Experience}{Experiencia}}
-	\resumeSubHeadingListStart
-	\resumeSubheading
-      		{Sedemi}{Sangolqu\EngOrSp
-      		{i}{í}, Ecuador}
-      		{Senior Software Developer Analyst}{May 2023 -- \EngOrSp{Present}{Presente}}
+	\headingListStart
+    \heading
+      		{Netby IT Consulting}{Quito, Ecuador}
+      		{\EngOrSp{Software Developer}{Desarrollador de Software}}{\EngOrSp{June 2024}{Junio 2024} -- \EngOrSp{Present}{Presente}}
     	\resumeItemListStart
 	      	\resumeItem{\EngOrSp
-	      	{Developed and implemented a few brand new Angular applications according to the functional documents and designs previously approved, suggesting and coding improvements regarding usability and compatibility as well as helping with the API creation on the backend which was coded with the .NET framework using different design patterns.
-	      	The purpose of the applications is to support the migration to another ERP.}
-	        {Desarrollé e implementé algunas aplicaciones Angular totalmente nuevas de acuerdo a los documentos funcionales y diseños previamente aprobados, sugiriendo y codificando mejoras en cuanto a usabilidad y compatibilidad así como ayudando con la creación de API en el backend codificado con el framework .NET usando diferentes patrones de diseño.
-	      	El propósito de las aplicaciones es apoyar la migración a otro ERP.}}
+	      	{At Confiamed, a leading prepaid medicine insurance company, I work extensively with Azure DevOps microservices to optimize and enhance backend operations. My responsibilities includ bug fixing, implementing new functionalities, and ensuring system efficiency. I primarily focus on backend development using .NET, Entity Framework (EF), and SQL Server, all within an Agile environment.}
+	        {En Confiamed, una empresa líder en seguros de medicina prepagada, trabajo extensamente con microservicios de Azure DevOps para optimizar y mejorar las operaciones del backend. Mis responsabilidades incluyen la corrección de errores, la implementación de nuevas funcionalidades y la garantía de la eficiencia del sistema. Me centro principalmente en el desarrollo backend utilizando .NET, Entity Framework (EF) y SQL Server, todo dentro de un entorno Ágil.}}
+        \resumeItemListEnd
+	\heading
+      		{Sedemi}{Sangolqu\EngOrSp
+      		{i}{í}, Ecuador}
+      		{Senior Software Developer Analyst}{Mayo 2023 -- \EngOrSp{May 2024}{Mayo 2024}}
+    	\resumeItemListStart
+	      	\resumeItem{\EngOrSp
+	      	{Developed and implemented new Angular applications, adhering to approved functional documents and designs. I proactively suggested and coded enhancements to improve usability and compatibility. Additionally, I contributed to backend API development using the .NET framework and various design patterns. These applications were integral to supporting the migration to a new ERP system.}
+	        {Desarrollé e implementé nuevas aplicaciones en Angular, siguiendo documentos funcionales y diseños aprobados. Proactivamente sugerí y codifiqué mejoras para optimizar la usabilidad y la compatibilidad. Además, contribuí al desarrollo de APIs en el backend utilizando el framework .NET y varios patrones de diseño. Estas aplicaciones fueron fundamentales para apoyar la migración a un nuevo sistema ERP.}}
 	      	
-	      \resumeItem{\EngOrSp{
-	      The applications were developed for the Project Management department and Collections department as well as the Production Plant for Construction}{Las aplicaciones se desarrollaron para el departamento de Gestión de Proyectos y el departamento de Cobranzas, así como para la Planta de Producción de Construcción.}}
+    	      \resumeItem{\EngOrSp
+            {The applications were specifically developed to support the Project Management department, Collections department, and the Production Plant for Construction.}{Las aplicaciones fueron desarrolladas específicamente para apoyar al departamento de Gestión de Proyectos, al departamento de Cobranza, y a la Planta de Producción para Construcción.}}
 	    \resumeItemListEnd
-		\resumeSubheading
+		\heading
       		{WebCreek}{Quito, Ecuador}
       		{Software Engineer I}{Feb 2021 -- \EngOrSp{Feb 2022}{Feb 2022}}
     	\resumeItemListStart
 	      	\resumeItem{\EngOrSp
-	      	{Designed and developed modules in an existing application
-	      	involving accounting logic. .NET was used for the backend and Angular
-	        for the frontend}
-	        {Diseño y desarrollo de módulos en una aplicación
-	      	existente involucrando lógica contable. .NET fue usado para el
-	      	backend y Angular para frontend}}
+	      	{Designed and developed modules for an existing application focused on accounting logic, utilizing .NET for backend development and Angular for the frontend.}
+	        {Diseñé y desarrollé módulos para una aplicación existente enfocada en lógica contable, utilizando .NET para el desarrollo backend y Angular para el frontend.}}
 	      	\resumeItem{\EngOrSp
-	      	{Worked on the modification of a web application to
-	      	support responsiveness which involved SASS and learning about third
-	      	party libraries. Refactored most of the styles and coordinated
-	      	efforts to implement new modules maintaining consistency to provide a
-	      	good user experience}
-	      	{Trabajé en la modificación de una aplicación web
-	      	para que sea adaptable a múltiples dispositivos utilizando SASS y
-	      	aprendiendo sobre librerias de terceros. Se refactoró la mayoría
-	      	de los estilos y se coordinó la implementación de nuevos
-	      	módulos para que mantengan consistencia en toda la aplicación
-	      	para proveer una buena experiencia de usuario}}
+	      	{Modified a web application to enhance responsiveness, utilizing SASS and integrating third-party libraries. I refactored the majority of styles and coordinated efforts to implement new modules, ensuring consistency and delivering an improved user experience.}
+	      	{Modifiqué una aplicación web para mejorar la capacidad de respuesta, utilizando SASS e integrando bibliotecas de terceros. Refactoricé la mayoría de los estilos y coordiné esfuerzos para implementar nuevos módulos, asegurando la consistencia y brindando una mejor experiencia de usuario.}}
 		\resumeItemListEnd
-		\resumeSubheading
+		\heading
       		{WebCreek}{Quito, Ecuador}
       		{Software Engineer - Internship}{\EngOrSp{Aug}{Ago} 2020 -- Feb 2021}
     	\resumeItemListStart
 	      	\resumeItem{\EngOrSp
-	      	{Worked in a multicultural team mainly developing
-	      	reports with the DevExpress Reporting tool, gaining some experience
-	      	in the .NET framework and Angular, handling the requests and
-	      	providing a nicely looking interface}
-	      	{Desempeñando mis actividades en un equipo multicultural
-	      	desarrollando reportes con la herramienta DevExpress. Obteniendo
-	      	experiencia en .NET y Angular al manejar peticiones e implementando
-	      	una interfaz usable}}
+	      	{Collaborated in a multicultural team to develop reports using the DevExpress Reporting tool. Gained experience with the .NET framework and Angular, managing requests and creating a visually appealing interface.}
+	      	{Colaboré en un equipo multicultural para desarrollar informes utilizando la herramienta DevExpress Reporting. Adquirí experiencia con el framework .NET y Angular, gestionando solicitudes y creando una interfaz visualmente atractiva.}}
 		\resumeItemListEnd
-		\resumeSubheading
+		\heading
       		{Disanort (\EngOrSp
       		{Family Business}{Negocio Familiar})}{Sangolqu\EngOrSp
       		{i}{í}, Ecuador}
       		{\EngOrSp
-      		{English, Physics and Maths Tutor}
+      		{English, Physics and Math Tutor}
       		{Tutor de Inglés, Física y Matemática}}
       		{2017 -- \EngOrSp{Present}{Presente}}
     	\resumeItemListStart
 	      	\resumeItem{\EngOrSp
-	      	{Taught and helped students from middle, high school and first years}
-	      	{Enseñanza impartida a estudiates de educación básica
-	      	superior, bachillerato e inicios en la educación superior.}}
+	      	{Taught and provided academic support to students across middle school, high school, and their first years of higher education.}
+	      	{Enseñé y brindé apoyo académico a estudiantes de secundaria, preparatoria y primeros años de educación superior.}}
 		    \resumeItem{\EngOrSp
 		    {Currently tutoring students when required}
 		    {Actualmente desempeñandome como tutor personal según se
 		    requiera}}
 		\resumeItemListEnd
-	\resumeSubHeadingListEnd
+	\headingListEnd
 % ---
 
 % EDUCATION
 \EngOrSp{\section{Education}
-  \resumeSubHeadingListStart
-    \resumeSubheading
+  \headingListStart
+    \heading
 		{Escuela Politecnica Nacional EPN}{Quito, Ecuador}
-		{MSc in Software}{May 2020 -- Present}
-    \resumeSubheading
+		{MSc in Software}{May 2020 -- May 2024}
+        \resumeItemListStart
+	    	\resumeItem{Summa Cum Laude}
+		    \resumeItem{{\MasterThesis}}
+	    \resumeItemListEnd
+    \heading
 	    {The University of Manchester}{Manchester, UK}
 	    {BEng in Computer Systems Engineering}{2016 -- 2019}
 	    \resumeItemListStart
 	    	\resumeItem{First Class}
 		    \resumeItem{{\certificateOfHE} and {\academicT}}
 	    \resumeItemListEnd
-    \resumeSubheading
+    \heading
 		{INTO Manchester}{Manchester, UK}
 		{IFY - International Foundation Year}{2015 -- 2016}
 		\resumeItemListStart
 			\resumeItem{Results: Further Maths - A*, Maths - A*, Physics - A*,
 			EAP - A}
 		\resumeItemListEnd
-	\resumeSubheading
-		{Unidad Educativa Santa Ana}{Sangolqui, Ecuador}
-		{High School Degree in Sciences}{2008 -- 2014}
-		\resumeItemListStart
-			\resumeItem{Result: 9,76/10}
-		\resumeItemListEnd
-  \resumeSubHeadingListEnd}
+	%\heading
+		%{Unidad Educativa Santa Ana}{Sangolqui, Ecuador}
+		%{High School Degree in Sciences}{2008 -- 2014}
+		%\resumeItemListStart
+			%\resumeItem{Result: 9,76/10}
+		%\resumeItemListEnd
+  \headingListEnd}
   {\section{Educación}
-  \resumeSubHeadingListStart
-    \resumeSubheading
+  \headingListStart
+    \heading
 		{Escuela Politécnica Nacional EPN}{Quito, Ecuador}
-		{Maestría en Software}{Mayo 2020 -- Presente}
-    \resumeSubheading
+		{Maestría en Software}{Mayo 2020 -- Mayo 2024}
+        \resumeItemListStart
+	    	\resumeItem{Summa Cum Laude}
+		    \resumeItem{{\MasterThesis}}
+	    \resumeItemListEnd
+    \heading
 	    {The University of Manchester}{Manchester, UK}
 	    {Ingeniería en Sistemas Computacionales}{2016 -- 2019}
 	    \resumeItemListStart
 	    	\resumeItem{Primera clase}
 		    \resumeItem{{\certificateOfHE} y {\academicT}}
 	    \resumeItemListEnd
-	\resumeSubheading
+	\heading
 		{INTO Manchester}{Manchester, UK}
 		{Año de preparación propedéutico internacional}{2015 -- 2016}
 		\resumeItemListStart
 			\resumeItem{Resultados: Matemática Avanzada - A*, Matemática - A*,
 			Física - A*, Inglés para propósitos académicos - A}
 		\resumeItemListEnd
-	\resumeSubheading
-		{Unidad Educativa Santa Ana}{Sangolquí, Ecuador}
-		{Bachillerato en Ciencias -- BGU}{2008 -- 2014}
-		\resumeItemListStart
-			\resumeItem{Resultado: 9,76/10}
-		\resumeItemListEnd
-  \resumeSubHeadingListEnd}
+	%\heading
+		%{Unidad Educativa Santa Ana}{Sangolquí, Ecuador}
+		%{Bachillerato en Ciencias -- BGU}{2008 -- 2014}
+		%\resumeItemListStart
+			%\resumeItem{Resultado: 9,76/10}
+		%\resumeItemListEnd
+  \headingListEnd}
 % ---
 
 % CERTIFICATIONS
 \EngOrSp{\section{Certifications}
-  \resumeSubHeadingListStart
-		\resumeSubheading
+  \headingListStart
+		\heading
 			{Coursera}{MOOC}
 			\TSOper{Issued May -- 2023}
-		\resumeSubheading
+		\heading
 			{Coursera}{MOOC}
 			\TSVars{Issued May -- 2023}
-		\resumeSubheading
+		\heading
 			{Coursera}{MOOC}
 			\IntroBash{Issued May -- 2023}
-    \resumeSubheading
+    \heading
       {Coursera}{MOOC}
       \MOOC{Issued Jul -- 2020}
-    \resumeSubheading
+    \heading
       {Udemy}{MOOC}
       \UdemyMOOC{Issued Jun -- 2021}
-  \resumeSubHeadingListEnd}
+  \headingListEnd}
   {\section{Certificaciones}
-  \resumeSubHeadingListStart
-		\resumeSubheading
+  \headingListStart
+		\heading
 			{Coursera}{MOOC}
 			\TSOper{Otorgado May -- 2023}
-		\resumeSubheading
+		\heading
 			{Coursera}{MOOC}
 			\TSVars{Otorgado May -- 2023}
-		\resumeSubheading
+		\heading
 			{Coursera}{MOOC}
 			\IntroBash{Otorgado May -- 2023}
-    \resumeSubheading
+    \heading
       {Coursera}{MOOC}
       \MOOC{Otorgado Jul -- 2020}
-    \resumeSubheading
+    \heading
       {Udemy}{MOOC}
       \UdemyMOOC{Otorgado Jun -- 2021}
-  \resumeSubHeadingListEnd}
+  \headingListEnd}
 
 % ---
 
 % PROJECTS
-\EngOrSp{\section{Projects}
-  \resumeSubHeadingListStart
-    \resumeSubItem{\textbf{HelpMeOut:} Web app aimed to students. Managed the backend with PHP and databases with MySQL and phpmyadmin.}
+%\EngOrSp{\section{Projects}
+ % \headingListStart
+  %  \resumeSubItem{\textbf{HelpMeOut:} Web app aimed to students. Managed the backend with PHP and databases with MySQL and phpmyadmin.}
 
-	\resumeSubItem{\textbf{Stendhal:} Developed, tested and deployed a feature in an open source MORPG.}
+	%\resumeSubItem{\textbf{Stendhal:} Developed, tested and deployed a feature in an open source MORPG.}
 
-	\resumeSubItem{\ParcOS}
+	%\resumeSubItem{\ParcOS}
 
-  \resumeSubHeadingListEnd}
-  {\section{Proyectos}
-  \resumeSubHeadingListStart
-    \resumeSubItem{\textbf{HelpMeOut:} Aplicación Web enfocada a estudiantes. Encargado del backend con PHP y base de datos con MySQL.}
+  %\headingListEnd}
+  %{\section{Proyectos}
+  %\headingListStart
+   % \resumeSubItem{\textbf{HelpMeOut:} Aplicación Web enfocada a estudiantes. Encargado del backend con PHP y base de datos con MySQL.}
 
-	\resumeSubItem{\textbf{Stendhal:} Desarrollo, prueba y lanzamiento de un componente en un juego MORPG.}
+	%\resumeSubItem{\textbf{Stendhal:} Desarrollo, prueba y lanzamiento de un componente en un juego MORPG.}
 
-	\resumeSubItem{\ParcOS}
+	%\resumeSubItem{\ParcOS}
 
-  \resumeSubHeadingListEnd}
+  %\headingListEnd}
 % ---
 
 % PERSONAL PUBLICATIONS
-%\section{Personal publications}
+\section{\EngOrSp{Publications}{Publicaciones}}
 
-%  \resumeSubHeadingListStart
-%    \resumeSubItem{\href{Link to publication}{Title and where to find it}}
+  \headingListStart
+    \resumeSubItem{\href{https://www.ijiet.org/show-207-2760-1.html}{A Closer Look at MOOC Accessibility: Comparing Local and Global Platforms with WCAG 3.0 in Mind}}
 
-%  \resumeSubHeadingListEnd
+  \headingListEnd
 % ---
 
 % PROGRAMMING SKILLS
 \EngOrSp{\section{Programming Languages Experience}
-	\resumeSubHeadingListStart
+	\headingListStart
 		\resumeSubItem{\textbf{C:} Mainly used for the implementation of well-known algorithms and optimization techniques. Heuristics, dynamic programming, Dijkstra, are a few examples}
 
-		\resumeSubItem{\textbf{Assembly ARM:} Developed a primitive OS and used it for the implementation of microcontroller's routines}
+		%\resumeSubItem{\textbf{Assembly ARM:} Developed a primitive OS and used it for the implementation of microcontroller's routines}
 
 		\resumeSubItem{\textbf{Java:} Used for multi-threading performance analysis, simple GUI development, Android applications, distributed systems simulations, Spring Framework web apps development}
 
 		\resumeSubItem{\textbf{Matlab:} Implemented machine learning algorithms such as linear regression, knn, k-means and Naive Bayes}
 
-		\resumeSubItem{\textbf{PHP:} Backend management of a web page, fairly simple and straight forward implementation}
+		%\resumeSubItem{\textbf{PHP:} Backend management of a web page, fairly simple and straight forward implementation}
 
 		\resumeSubItem{\textbf{SQL:} Analysed case studies based on the Relational and Enhanced Relational models, implementing them in an Oracle server}
 
-		\resumeSubItem{\textbf{Verilog:} HDL used to build a wide range of units ranging from traffic light controllers to more complex systems such as a video display unit}
+		%\resumeSubItem{\textbf{Verilog:} HDL used to build a wide range of units ranging from traffic light controllers to more complex systems such as a video display unit}
 
 		\resumeSubItem{\textbf{Python:} Analysed signals in the frequency domain, encoded and decoded multimedia files using different approaches, worked on error detection and correction aimed to mobile systems}
 
@@ -349,15 +253,14 @@
 
 		\resumeSubItem{\textbf{C$\sharp$:} Backend handling of requests in a web application. Mostly worked on DB updates, filter data optimally before processing to pass it to the frontend, and report generation using DevExpress}
 
-	\resumeSubHeadingListEnd}
+	\headingListEnd}
 	{\section{Experiencia en Lenguajes de programaci\'on}
-	\resumeSubHeadingListStart
+	\headingListStart
 		\resumeSubItem{\textbf{C:} Principalmente usado para la implementación de
 		algoritmos conocidos y técnicas de optimización. Métodos heurísticos,
 		programación dinámica y Dijkstra son algunos ejemplos.}
 
-		\resumeSubItem{\textbf{Assembly ARM:} Desarrollo de un sistema operativo
-		primitivo además de rutinas para microcontroladores}
+		%\resumeSubItem{\textbf{Assembly ARM:} Desarrollo de un sistema operativo primitivo además de rutinas para microcontroladores}
 
 		\resumeSubItem{\textbf{Java:} Usado para analizar el rendimiento de
 		programas multithread, desarrollo de interfaces gráficas simples,
@@ -367,15 +270,13 @@
 		\resumeSubItem{\textbf{Matlab:} Programación de algoritmos de aprendizaje
 		automático como regresión lineal, knn, k-means y Naive Bayes}
 
-		\resumeSubItem{\textbf{PHP:} Manejo de backend de una página web}
+		%\resumeSubItem{\textbf{PHP:} Manejo de backend de una página web}
 
 		\resumeSubItem{\textbf{SQL:} Análisis de casos de estudio basados en el
 		modelo relacional y modelo relacional mejorado, implementándolos en un
 		servidor Oracle}
 
-		\resumeSubItem{\textbf{Verilog:} Construcción de una variedad de unidades
-		desde un controlador de luces de semáforo hasta una pantalla de
-		visualización de video.}
+		%\resumeSubItem{\textbf{Verilog:} Construcción de una variedad de unidades desde un controlador de luces de semáforo hasta una pantalla de visualización de video.}
 
 		\resumeSubItem{\textbf{Python:} Análisis de señales en el dominio de
 		frecuencias, codificación y decodificación de archivos multimedia usando
@@ -391,23 +292,23 @@
 		datos, filtrado óptimo previo al procesamiento y paso al frontend y la
 		generación de reportes usando DevExpress}
 
-	\resumeSubHeadingListEnd}
+	\headingListEnd}
 % ---
 % PROJECTS
 \EngOrSp{\section{Additional Info}
-\resumeSubHeadingListStart
+\headingListStart
 \resumeSubItem{\textbf{Languages:} Spanish -- Native speaker, English -- \Ctwo}
 
 \resumeSubItem{\textbf{Qualifications:} Driver's license, \PADI}
 
-\resumeSubHeadingListEnd}
+\headingListEnd}
 {\section{Información Adicional}
-\resumeSubHeadingListStart
+\headingListStart
 \resumeSubItem{\textbf{Lenguajes:} Español -- Hablante nativo, Ingl\'es -- \Ctwo}
 
 \resumeSubItem{\textbf{Cualificaciones:} Licencia de conducir Tipo B, \PADI}
 
-\resumeSubHeadingListEnd}
+\headingListEnd}
 % ---
 
 \end{document}

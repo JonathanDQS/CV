@@ -1,0 +1,36 @@
+% Resume item commands
+\newcommand{\resumeItem}[1]
+{
+  \item\small{#1}
+}
+
+\newcommand{\heading}[4]
+{
+  \vspace{3pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-2.5pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]
+{
+    \vspace{1pt}
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-2.5pt}
+}
+
+\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-2pt}}
+
+\renewcommand{\labelitemii}{$\circ$}
+
+\newcommand{\headingListStart}{\begin{itemize}[leftmargin=*]}
+\newcommand{\headingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-2.5pt}}
+
+\newcommand{\resumeTech}[2]
+{
+ \textbf{#1:} #2
+} 

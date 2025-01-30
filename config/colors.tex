@@ -1,0 +1,12 @@
+\AtBeginDocument{
+    % Color theme configuration
+    \ifDark
+        \colorlet{textcolor}{white!80!gray}
+        \colorlet{backgroundcolor}{black!70!gray}
+        \colorlet{urlcolor}{blue!50!gray}
+        \pagecolor{backgroundcolor}
+        \color{textcolor}
+    \else
+        \colorlet{urlcolor}{blue}
+    \fi
+}

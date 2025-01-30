@@ -1,0 +1,28 @@
+% Link styling configuration
+\let\orighref\href
+\renewcommand{\href}[2]{\orighref{#1}{#2\,\faExternalLink}}
+
+% Version reference commands
+\newcommand{\otherThemeRef}{\themeDark
+	{\EngOrSp
+		{\href{https://jonathandqs.github.io/CV/CV_light.pdf}{See light theme}}
+		{\href{https://jonathandqs.github.io/CV/CV_spanish_light.pdf}{Versión clara}}}
+	{\EngOrSp
+		{\href{https://jonathandqs.github.io/CV/CV.pdf}{See dark theme}}
+		{\href{https://jonathandqs.github.io/CV/CV_spanish.pdf}{Versión obscura}}}}
+
+\newcommand{\latestVersion}{\themeDark
+	{\EngOrSp
+		{\href{https://jonathandqs.github.io/CV/CV.pdf}{Get Latest version}}
+		{\href{https://jonathandqs.github.io/CV/CV_spanish.pdf}{Versión más reciente}}}
+	{\EngOrSp
+		{\href{https://jonathandqs.github.io/CV/CV_light.pdf}{Get Latest version}}
+		{\href{https://jonathandqs.github.io/CV/CV_spanish_light.pdf}{Versión más reciente}}}}
+
+\newcommand{\languageVersion}{\themeDark
+	{\EngOrSp
+		{\href{https://jonathandqs.github.io/CV/CV_spanish.pdf}{See Spanish Version}}
+		{\href{https://jonathandqs.github.io/CV/CV.pdf}{Versión en Inglés}}}
+	{\EngOrSp
+		{\href{https://jonathandqs.github.io/CV/CV_spanish_light.pdf}{See Spanish Version}}
+		{\href{https://jonathandqs.github.io/CV/CV_light.pdf}{Versión en Inglés}}}}
