@@ -143,8 +143,8 @@ jobs:
       - name: Commit PDFs to repository (GitHub)
         if: ${{ github.event_name != 'pull_request' && !env.ACT }} # Skip on PR or local act run
         run: |
-          git config --global user.name "GitHub Actions"
-          git config --global user.email "actions@github.com"
+          git config --global user.name "Jonathan Quespaz"
+          git config --global user.email "jonathanquespaz@gmail.com"
           
           # Add all PDF files (handles both updates and new files)
           git add CV.pdf CV_light.pdf CV_spanish.pdf CV_spanish_light.pdf
