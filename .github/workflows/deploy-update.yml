@@ -1,4 +1,4 @@
-name: CI
+name: CV Generation Pipeline
 
 on:
   push:
@@ -13,6 +13,9 @@ jobs:
 
     container:
       image: texlive/texlive:latest
+    
+    permissions:
+      contents: write # This allows the workflow to push to the repository
 
     steps:
       # Step 1: Checkout the repository
@@ -31,41 +34,135 @@ jobs:
       # Step 3: Install prerequisites
       - name: Install prerequisites
         run: |
-          apt-get update && apt-get install -y poppler-utils pdftk
+          apt-get update && apt-get install -y poppler-utils pdftk sed
 
-      # Step 4: Compile CV.tex to PDF
-      - name: Compile CV.tex to PDF
+      # Step 4: Create temp directories for different variants
+      - name: Create temp directories
         run: |
-          mkdir -p output
-          pdflatex -interaction=nonstopmode -halt-on-error -file-line-error -output-directory=output CV.tex
-          echo "Output directory contents:"
-          ls -la output
+          mkdir -p output/english_dark
+          mkdir -p output/english_light
+          mkdir -p output/spanish_dark
+          mkdir -p output/spanish_light
+          
+          # Copy the entire directory structure to each variant directory
+          # This ensures all imported files and assets are available
+          cp -r * output/english_dark/ 2>/dev/null || true
+          cp -r * output/english_light/ 2>/dev/null || true
+          cp -r * output/spanish_dark/ 2>/dev/null || true
+          cp -r * output/spanish_light/ 2>/dev/null || true
 
-      # Step 5: Apply metadata from info.txt
-      - name: Apply metadata to PDF
+      # Step 5: Generate English Dark version (default)
+      - name: Generate English Dark version
         run: |
-          if [ -f output/CV.pdf ] && [ -f info.txt ]; then
-            echo "Applying metadata from info.txt to CV.pdf..."
-            pdftk output/CV.pdf update_info_utf8 info.txt output output/CV_with_metadata.pdf
-            mv output/CV_with_metadata.pdf output/CV.pdf
+          cd output/english_dark
+          # Ensure English and Dark are enabled
+          sed -i 's/% *\\Englishtrue/\\Englishtrue/' CV.tex
+          sed -i 's/% *\\Darktrue/\\Darktrue/' CV.tex
+          pdflatex -interaction=nonstopmode -halt-on-error -file-line-error CV.tex
+          cp CV.pdf ../../CV.pdf
+          cd ../..
+
+      # Step 6: Generate English Light version
+      - name: Generate English Light version
+        run: |
+          cd output/english_light
+          # Ensure English is enabled, Dark is disabled
+          sed -i 's/% *\\Englishtrue/\\Englishtrue/' CV.tex
+          sed -i 's/\\Darktrue/% \\Darktrue/' CV.tex
+          pdflatex -interaction=nonstopmode -halt-on-error -file-line-error CV.tex
+          cp CV.pdf ../../CV_light.pdf
+          cd ../..
+
+      # Step 7: Generate Spanish Dark version
+      - name: Generate Spanish Dark version
+        run: |
+          cd output/spanish_dark
+          # Ensure English is disabled, Dark is enabled
+          sed -i 's/\\Englishtrue/% \\Englishtrue/' CV.tex
+          sed -i 's/% *\\Darktrue/\\Darktrue/' CV.tex
+          pdflatex -interaction=nonstopmode -halt-on-error -file-line-error CV.tex
+          cp CV.pdf ../../CV_spanish.pdf
+          cd ../..
+
+      # Step 8: Generate Spanish Light version
+      - name: Generate Spanish Light version
+        run: |
+          cd output/spanish_light
+          # Ensure both English and Dark are disabled
+          sed -i 's/\\Englishtrue/% \\Englishtrue/' CV.tex
+          sed -i 's/\\Darktrue/% \\Darktrue/' CV.tex
+          pdflatex -interaction=nonstopmode -halt-on-error -file-line-error CV.tex
+          cp CV.pdf ../../CV_spanish_light.pdf
+          cd ../..
+
+      # Step 9: Clean up temporary directories
+      - name: Clean up temp directories
+        run: |
+          echo "Cleaning up temporary build directories..."
+          rm -rf output/
+      # Step 10: Apply metadata from info.txt if it exists
+      - name: Apply metadata to PDFs
+        run: |
+          if [ -f info.txt ]; then
+            echo "Applying metadata from info.txt to PDF files..."
+            
+            # Process CV.pdf (English Dark)
+            if [ -f CV.pdf ]; then
+              pdftk CV.pdf update_info_utf8 info.txt output CV_with_metadata.pdf
+              mv CV_with_metadata.pdf CV.pdf
+            fi
+            
+            # Process CV_light.pdf (English Light)
+            if [ -f CV_light.pdf ]; then
+              pdftk CV_light.pdf update_info_utf8 info.txt output CV_light_with_metadata.pdf
+              mv CV_light_with_metadata.pdf CV_light.pdf
+            fi
+            
+            # Process CV_spanish.pdf (Spanish Dark)
+            if [ -f CV_spanish.pdf ]; then
+              pdftk CV_spanish.pdf update_info_utf8 info.txt output CV_spanish_with_metadata.pdf
+              mv CV_spanish_with_metadata.pdf CV_spanish.pdf
+            fi
+            
+            # Process CV_spanish_light.pdf (Spanish Light)
+            if [ -f CV_spanish_light.pdf ]; then
+              pdftk CV_spanish_light.pdf update_info_utf8 info.txt output CV_spanish_light_with_metadata.pdf
+              mv CV_spanish_light_with_metadata.pdf CV_spanish_light.pdf
+            fi
           else
-            echo "PDF or info.txt file is missing. Skipping metadata application."
+            echo "info.txt file is missing. Skipping metadata application."
           fi
 
-      # Step 6: Copy the output to the root directory
-      - name: Copy generated PDF
-        run: |
-          echo "Contents of current directory:"
-          ls -la
-          echo "Contents of output directory:"
-          ls -la output/
-          mv -f output/CV.pdf ./CV.pdf
-          echo "Contents after move:"
-          ls -la CV.pdf
-
-      # Step 7: Debug final PDF
-      - name: Debug final PDF
+      # Step 11: Debug final PDFs
+      - name: Debug final PDFs
         run: |
           echo "Final PDF details:"
-          ls -lh CV.pdf
-          test -f CV.pdf && echo "PDF exists" || echo "PDF does not exist"
+          ls -lh CV*.pdf
+          
+      # Step 12: Commit PDFs back to the repository (when running on GitHub)
+      - name: Commit PDFs to repository (GitHub)
+        if: ${{ github.event_name != 'pull_request' && !env.ACT }} # Skip on PR or local act run
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          
+          # Add all PDF files (handles both updates and new files)
+          git add CV.pdf CV_light.pdf CV_spanish.pdf CV_spanish_light.pdf
+          
+          # Check if there are changes to commit
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            echo "Committing changes"
+            git commit -m "Update CV PDFs [skip ci]"
+            git push
+          fi
+      
+      # Step 12: Display output locations (helpful for local testing)
+      - name: Show output files
+        run: |
+          echo "Generated PDF files:"
+          ls -la CV*.pdf
+          echo ""
+          echo "When testing locally with act, the PDFs will be generated but not committed."
+          echo "You can find them in the current directory of your bound mount."
