@@ -1,6 +1,8 @@
 # Jonathan David Quespaz Sánchez
 
-Senior Software Engineer · ERP & Full‑Stack Systems · DevOps · Adjunct Professor
+Building scalable ERP systems and data-driven platforms aligned with business needs.
+
+Senior Software Engineer · ERP Systems · DevOps · Data & Business Systems · Adjunct Professor
 
 📍 Ecuador · 🌍 Remote-friendly
 
@@ -8,9 +10,13 @@ Senior Software Engineer · ERP & Full‑Stack Systems · DevOps · Adjunct Prof
 
 ## About Me
 
-Senior Software Engineer with extensive experience delivering **ERP systems**, **scalable backend services**, and **modern web applications**. Strong background in full-stack development, with a clear emphasis on **clean architecture, data consistency, and automation**.
+Senior Software Engineer with experience delivering **ERP systems**, **scalable backend services**, and **modern web applications** within business-critical environments. Strong background in full-stack development, with a focus on **clean architecture, data integrity, and operational efficiency**.
 
-Active university lecturer for **Databases I & II**, covering logical and physical data modeling, normalization, and advanced SQL. This academic role directly informs real-world system design decisions, particularly around data integrity and transactional consistency.
+Experience contributing to technical decision-making, improving development processes, and aligning technology solutions with business needs. Comfortable working across teams to translate operational requirements into scalable systems.
+
+Active university lecturer for **Databases I & II**, reinforcing expertise in data modeling, normalization, and transactional systems, with direct application to real-world system design.
+
+Currently evolving toward **technology leadership roles**, with a focus on decision-making, system-level thinking, and continuous improvement.
 
 ---
 
@@ -20,7 +26,14 @@ Active university lecturer for **Databases I & II**, covering logical and physic
 * **Frontend:** Angular, React, TypeScript
 * **Databases:** PostgreSQL, SQL Server, Oracle · Modeling · Normalization
 * **DevOps:** Docker, GitLab CI/CD, Azure DevOps, Linux
-* **Architecture:** ERP systems, microservices, design patterns, SOLID
+* **Systems & Architecture:** ERP systems, microservices, design patterns, SOLID
+
+## Leadership & Impact
+
+* Experience contributing to technical decision-making in ERP and backend systems.
+* Promoted DevOps practices, improving deployment reliability and team productivity.
+* Collaborated with internal teams to align technical solutions with operational requirements.
+* Exposure to business-critical systems in the insurance and construction sectors.
 
 ---
 
@@ -35,12 +48,13 @@ Active university lecturer for **Databases I & II**, covering logical and physic
 * Implements frontend features with **React**, focusing on maintainability and performance.
 * Drives the adoption of **Docker and GitLab CI/CD**, improving deployment automation and system reliability.
 * Operates within an **Agile** delivery environment.
+* Aligns technical solutions with operational needs to support business growth and system scalability.
 
 ### Software Developer — **Netby IT Consulting (Confiamed)**
 
 *Jun 2024 – Nov 2024*
 
-* Backend development for a prepaid medical insurance platform.
+* Contributed to backend development within Confiamed’s insurance platform, supporting business-critical operations.
 * Works with **Azure DevOps–based microservices** to enhance system performance and reliability.
 * Delivers bug fixes and new features using **.NET, Entity Framework, and SQL Server**.
 
@@ -85,7 +99,7 @@ Active university lecturer for **Databases I & II**, covering logical and physic
 
 ## Publications
 
-* **[A Closer Look at MOOC Accessibility:](https://www.ijiet.org/show-207-2760-1.html})** Comparing Local and Global Platforms with WCAG 3.0
+* **[A Closer Look at MOOC Accessibility:](https://www.ijiet.org/show-207-2760-1.html)** Comparing Local and Global Platforms with WCAG 3.0
 
 ---
 
